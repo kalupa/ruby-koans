@@ -5,13 +5,9 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 class DiceSet
   attr_reader :values
 
-  def initialize
-    @roll = 1
-  end
-
   def roll(num_of_dice)
-    @values = (@roll..num_of_dice).to_a 
-    @roll = @roll + 1
+    @values = []
+    num_of_dice.times { @values.push( rand(6) + 1 ) }
   end
 end
 
